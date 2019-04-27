@@ -17,6 +17,7 @@ function closeDB(){
 }
 // общие функции конец
 
+// получаем все больницы для регистрации.
 function getAllHosp(){
   global $link;
   openDB();
@@ -26,7 +27,7 @@ function getAllHosp(){
   closeDB();
   return $res1->fetch_all($resultype=MYSQLI_ASSOC);
 }
-
+// Регистрация
 function addUser ($fio,$phone,$diplom,$username,$pasword,$mail,$hosp){
   global $link;
   openDB();
@@ -35,6 +36,7 @@ function addUser ($fio,$phone,$diplom,$username,$pasword,$mail,$hosp){
   closeDB();
   return $res;
 }
+// Выбираем мкб из БД
 function chooseMKB (){
   global $link;
   openDB();
@@ -43,5 +45,13 @@ function chooseMKB (){
   closeDB();
   return $res->fetch_all($resultype=MYSQLI_ASSOC);
 }
-
+//Выводим данные из БД в Кейс
+function GetKeys(){
+  global $link;
+  openDB();
+  $query = "SELECT * FROM keys";
+  $res = mysqli_query($link,$query);
+  closeDB();
+  return $res->fetch_all($resultype=MYSQLI_ASSOC);
+}
  ?>
