@@ -1,0 +1,152 @@
+*{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+body{
+  background-color: white;
+  /* background-image: url(../image/pexels-photo-1096925.jpeg); */
+}
+.sign_up input{
+  margin: 15px;
+  width: 50%;
+  height: 30px;
+  display: block;
+}
+.sign_up button{
+  margin: 15px;
+  width: 20%;
+  display: inline-block;
+  border: 4px solid silver;
+  background-color: silver;
+  border-radius: 7px;
+  font-size: 15px;
+  font-weight: bold;
+}
+.accept:hover{
+  background-color: darkgreen;
+  color: white;
+  border-color: darkgreen;
+}
+.res:hover{
+  background-color: red;
+  color: white;
+  border-color: red;
+}
+.cont{
+  width: 50%;
+  border: 5px double red;
+  background-color: lightgrey;
+}
+.nav{
+  width: 100%;
+  height: 50px;
+  background-color: green;
+  text-align: center;
+}
+.nav1{
+  background-color: white;
+}
+.nav1 li{
+  display: inline;
+  padding-left: 5px;
+  float: right;
+}
+.main_cont{
+  width: 1024px;
+  height: 100%;
+  margin: 0 auto;
+  text-align: center;
+  color: #343a40;
+  background-color: rgba(212, 212, 212, 0.8);
+}
+
+.main_cont a{
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+}
+.main_cont a:hover{
+  color: darkgrey;
+  text-decoration: none;
+}
+h1{
+  color: black;
+  text-align: center;
+}
+.form-inline button a{
+  color: green;
+}
+.form-inline button a:hover{
+  color: #fff;
+  text-decoration: none;
+}
+.form-inline button{
+  margin-left: 7px;
+
+}
+.lobby_cont{
+  width: 1024px;
+  height: 500px;
+  margin: 0 auto;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 100px;
+  border: 3px solid darkgrey;
+  border-radius: 10px;
+
+}
+.lobby_cont a{
+  color: white;
+  text-decoration: none;
+}
+.lobby_cont a:hover{
+  color: white;
+  text-decoration: none;
+}
+
+/* вкладки на странице старт*/
+.tabs { width: 100%; padding: 0px; margin: 0 auto; }
+.tabs>input { display:none; }
+.tabs>div {
+    display: none;
+    padding: 12px;
+    border: 1px solid #C0C0C0;
+    background: #FFFFFF;
+}
+.tabs>label {
+    display: inline-block;
+    padding: 7px;
+    margin: 0 -5px -1px 0;
+    text-align: center;
+    color: #666666;
+    border: 1px solid #C0C0C0;
+    border-radius: 5px;
+    background: #E0E0E0;
+    cursor: pointer;
+}
+.tabs>input:checked + label {
+    color: white;
+    border: 1px solid #C0C0C0;
+    border-bottom: 1px solid #FFFFFF;
+    border-radius: 5px;
+    background: darkgreen;
+}
+#tab_1:checked ~ #txt_1,
+#tab_2:checked ~ #txt_2,
+#tab_3:checked ~ #txt_3,
+#tab_4:checked ~ #txt_4,
+#tab_5:checked ~ #txt_5 { display: block; }
+/* вкладки на странице конец*/
+
+/* страница ЦРМ старт*/
+.drm_cont{
+  width: 1024px;
+  height: 700px;
+  margin: 0 auto;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 10px;
+  border: 3px solid darkgrey;
+  border-radius: 10px;
+}
