@@ -1,6 +1,8 @@
 <?php include "functions_db.php";
 $mkb = chooseMKB();
 $return = certainKey($_GET['certainKey1']);
+$retDiag = klinDiagnoz($_GET['certainKey1']);
+$patDiag = patologDiagnoz($_GET['certainKey1']);
 
  ?>
 <!DOCTYPE html>
@@ -10,19 +12,7 @@ $return = certainKey($_GET['certainKey1']);
     <link rel="stylesheet" href="CSS\master.css">
     <title>Lobby</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script>
-   function agreeForm(f) {
-    // Если поставлен флажок, снимаем блокирование кнопки
-    if (f.inlineRadio1.checked) {f.hour.disabled = 1;
-      f.days.disabled = 0;
-    }
-    // В противном случае вновь блокируем кнопку
-    else if (f.inlineRadio2.checked) {
-      f.days.disabled = 1;
-      f.hour.disabled = 0;
-    }
-   }
-  </script>
+
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -97,28 +87,54 @@ $return = certainKey($_GET['certainKey1']);
   <ul class="list-group list-group-horizontal-md mt-2">
     <li class="list-group-item list-group-item-success"><strong>Комментарий по аутопсии: </strong><?php echo $return["Коментарий"]; ?></li>
   </ul>
-  
+
     </div>
     <div id="txt_2">
       <div class="d_mkb">
+        <div class="klinika">
         <h5>Заключительный клинический диагноз</h5>
+        <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Номер МКБ</th>
+          <th scope="col">Диагноз</th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php
+        for($i=0; $i<count($retDiag);$i++){
+            // $id=$res[$i]["id_МКБ"];
+            echo "<tr><td>".$retDiag[$i]["id_МКБ"]."</td>";
+            echo "<td>".$retDiag[$i]["Диагноз"]."</td>";
 
-          <form class="" action="index.html" method="post">
+            }
+        ?>
+      </tbody>
+    </table>
+    </div>
+    <div class="patolog">
+    <h5>Заключительный патологоанатомический диагноз</h5>
+    <table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Номер МКБ</th>
+      <th scope="col">Диагноз</th>
+    </tr>
+  </thead>
+    <tbody>
+    <?php
+    for($i=0; $i<count($patDiag);$i++){
+        // $id=$res[$i]["id_МКБ"];
+        echo "<tr><td>".$patDiag[$i]["id_МКБ"]."</td>";
+        echo "<td>".$patDiag[$i]["Диагноз"]."</td>";
 
-            <div class="dropdown_select">
+        }
+    ?>
+    </tbody>
+  </table>
+</div>
 
-        <select class="form-control row col-sm-5 ml-1" name="ch_mkb" id="ch_mkb" size="1">
-                     <?php
-                       for($i=0; $i<count($mkb); $i++){
-                         $id_loc=$mkb[$i]["id_МКБ"];
-                         $loc=$mkb[$i]["Диагноз"];
-                         echo "<option value =$id_loc>$loc</option>";
-                       }
-                     ?>
-                   </select>
-                   </div>
-        </div>
-        </form>
+    </div>
     </div>
     <div id="txt_3">
         <p>Размеры содержимого вкладок</p>
@@ -131,7 +147,25 @@ $return = certainKey($_GET['certainKey1']);
 
     </div>
 </div>
+<div class="list-group" id="list">
+  <a href="http://smd/dmd/lobby.php" class="list-group-item list-group-item-action list-group-item-danger">Go back</a>
+</div>
       </div>
+
     </div>
+
+    <script>
+   function agreeForm(f) {
+    // Если поставлен флажок, снимаем блокирование кнопки
+    if (f.inlineRadio1.checked) {f.hour.disabled = 1;
+      f.days.disabled = 0;
+    }
+    // В противном случае вновь блокируем кнопку
+    else if (f.inlineRadio2.checked) {
+      f.days.disabled = 1;
+      f.hour.disabled = 0;
+    }
+   }
+  </script>
   </body>
 </html>

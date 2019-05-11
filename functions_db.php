@@ -65,4 +65,30 @@ function certainKey($numb_k){
   // $answ = mysqli_fetch_assoc($res);
   // return $answ["id_кейса"];
 }
+// берём клин диагнозы по определённому кейсу
+function klinDiagnoz($id){
+  global $link;
+  openDB();
+  $query = "SELECT `клиническийдиагноз`.`id_МКБ`,`мкб`.`Диагноз`
+  FROM `клиническийдиагноз` join `мкб` on `клиническийдиагноз`.`id_МКБ` = `мкб`.`id_МКБ`
+  WHERE `клиническийдиагноз`.`id_кейса` = $id";
+  $res = mysqli_query($link,$query);
+  closeDB();
+  // return mysqli_fetch_assoc($res);
+  return $res->fetch_all($resultype=MYSQLI_ASSOC);
+}
+// берём патолог диагнозы по определённому кейсу
+function patologDiagnoz($id){
+  global $link;
+  openDB();
+  $query = "SELECT `патоалогическийдиагноз`.`id_МКБ`,`мкб`.`Диагноз`
+  FROM `патоалогическийдиагноз` join `мкб` on `патоалогическийдиагноз`.`id_МКБ` = `мкб`.`id_МКБ`
+  WHERE `патоалогическийдиагноз`.`id_кейса` = $id";
+  $res = mysqli_query($link,$query);
+  closeDB();
+  // return mysqli_fetch_assoc($res);
+  return $res->fetch_all($resultype=MYSQLI_ASSOC);
+}
+
+
  ?>
