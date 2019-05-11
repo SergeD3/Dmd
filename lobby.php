@@ -33,12 +33,21 @@
       </div>
     </nav>
     </div>
+
+
     <div class="lobby_main_cont">
       <div class="lobby_cont">
-        <button type="button" class="btn btn-primary btn-lg btn-block"><a
-         href="Manage_data.php"> Форма добавления кейса</a></button>
-<button type="button" class="btn btn-secondary btn-lg btn-block"><a
- href="#">Отчеты и статистика по кейсам</a></button>
+        <h1>Поиск по кейсу</h1>
+          <form class="form-inline" action="certain_key_view.php" method="get">
+            <div class="input-group mb-2">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">Кейс:</span>
+              </div>
+              <input type="text" class="form-control" id="certainKey1" name="certainKey1" placeholder="Номер" aria-label="Cert_key" aria-describedby="basic-addon1">
+            </div>
+            <button type="submit" class="btn btn-primary mb-2">Найти и показать</button>
+          </form>
+
       </div>
     </div>
   </body>

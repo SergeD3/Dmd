@@ -45,7 +45,7 @@ function chooseMKB (){
   closeDB();
   return $res->fetch_all($resultype=MYSQLI_ASSOC);
 }
-//Выводим данные из БД в Кейс
+// Выводим данные из БД в форму Кейс
 function GetKeys(){
   global $link;
   openDB();
@@ -53,5 +53,16 @@ function GetKeys(){
   $res = mysqli_query($link,$query);
   closeDB();
   return $res->fetch_all($resultype=MYSQLI_ASSOC);
+}
+// Выбираем определённый Кейс
+function certainKey($numb_k){
+  global $link;
+  openDB();
+  $query = "SELECT * FROM Кейс WHERE id_кейса = $numb_k";
+  $res = mysqli_query($link,$query);
+  closeDB();
+  return mysqli_fetch_assoc($res);
+  // $answ = mysqli_fetch_assoc($res);
+  // return $answ["id_кейса"];
 }
  ?>

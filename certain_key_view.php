@@ -1,5 +1,7 @@
 <?php include "functions_db.php";
 $mkb = chooseMKB();
+$return = certainKey($_GET['certainKey1']);
+
  ?>
 <!DOCTYPE html>
 <html lang="ru" dir="ltr">
@@ -66,25 +68,36 @@ $mkb = chooseMKB();
   <!-- Раздел 1 -->
 
 <div id="txt_1">
-<form class="select_data" action="sd_keys_controller.php" method="GET">
-  <div class="form-row">
-    <div class="form-group col-md-2">
-          <label for="inputZip">Наблюдение</label>
-          <input type="text" class="form-control" id="inputZip" placeholder="check" disabled>
-        </div>
+  <ul class="list-group list-group-horizontal-md">
+      <li class="list-group-item list-group-item-success"><strong>Наблюдение: № </strong><?php echo $return["id_кейса"]; ?></li>
+      <li class="list-group-item list-group-item-success"><strong>Пол: </strong><?php echo $return["Пол"]; ?></li>
+      <li class="list-group-item list-group-item-success"><strong>Возраст: </strong><?php echo $return["Возраст"]; ?></li>
+      <li class="list-group-item list-group-item-success"><strong>Койко-дни: </strong><?php echo $return["койко_дни"]; ?></li>
+      <li class="list-group-item list-group-item-success"><strong>Койко-часы: </strong><?php echo $return["Койко_часы"]; ?></li>
+  </ul>
+  <ul class="list-group list-group-horizontal-md mt-2">
+      <li class="list-group-item list-group-item-success"><strong>Дата смерти: </strong><?php echo $return["Дата_смерти"]; ?></li>
+      <li class="list-group-item list-group-item-success"><strong>Дата вскрытия: </strong><?php echo $return["Дата_вскрытия"]; ?></li>
+      <li class="list-group-item list-group-item-success"><strong>Разница в часах: </strong><?php echo $return["Пол"]; ?></li>
+      <li class="list-group-item list-group-item-success"><strong>Дата добавления записи: </strong><?php echo $return["Дата_добавления_записи"]; ?></li>
 
-    <button type="button" class="btn btn-outline-dark ml-2">Найти и показать</button>
-<a href="C:\OSPanel\domains\smd.ru\Dmd\lobby.php"></a>
-</div>
-</form>
-<form class="select_data mt-2" action="sd_keys_controller.php" method="GET">
-  <div class="form-row">
+  </ul>
+  <ul class="list-group list-group-horizontal-md mt-2">
+    <li class="list-group-item list-group-item-success"><strong>Дата окончания протокола: </strong><?php echo $return["ДатаПротокола"]; ?></li>
+    <li class="list-group-item list-group-item-success"><strong>Оформление протокола </strong><?php echo $return["Койко_часы"]; ?> <strong>суток</strong></li>
+    <li class="list-group-item list-group-item-success"><strong>Правильность оформления свидетельства: </strong><?php echo $return["СовпадениеПрот"]; ?> </br></li>
+    <li class="list-group-item list-group-item-success"><strong>Обязательность аутопсии: </strong><?php echo $return["ОбязАутоп"]; ?></li>
+
+  </ul>
 
 
-    <button type="button" class="btn btn-outline-dark ml-2">Вывести все кейсы</button>
-
-</div>
-</form>
+  <ul class="list-group list-group-horizontal-md mt-2">
+    <li class="list-group-item list-group-item-success"><strong title="Правильность оформления свидетельства">Комментарий к ПОС: </strong><?php echo $return["ПОС_комм"]; ?></li>
+  </ul>
+  <ul class="list-group list-group-horizontal-md mt-2">
+    <li class="list-group-item list-group-item-success"><strong>Комментарий по аутопсии: </strong><?php echo $return["Коментарий"]; ?></li>
+  </ul>
+  
     </div>
     <div id="txt_2">
       <div class="d_mkb">
