@@ -153,17 +153,6 @@ h1{
 #list{
   width: 10%;
 }
-.d_mkb{
-  /* width: 100%;
-  padding: 0px;
-  margin: 0px; */
-
-}
-.klinika{
- /* float: left;
- width: 50%; */
-}
-.patolog{
-  /* float: right;
-  width: 50%; */
+.list2{
+  list-style-type: none;
 }
