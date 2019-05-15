@@ -1,18 +1,18 @@
 <?php
 include "functions_db.php";
-if(!empty ($_POST["button"])){
-  $email=htmlspecialchars($_POST["mail"]);
-  $password1=htmlspecialchars($_POST["passw"]);
-  $password2=htmlspecialchars($_POST["passw1"]);
-  if(strlen($email)<3) $success=false;
-  elseif($password1!=$password2) $success=false;
-  else $success=addUser($email, md5($password2));
-  if(!$success) $alert="Ошибка регистрации";
-  else $alert="Вы успешно зарегистрировались";
-  include "alert.php";
-
-$res = addUser($_POST["fio"],$_POST["phone"],$_POST["diplom"],$_POST["username"],$_POST["passw"],$_POST["mail"],$_POST["Sel_hosp"]);
-Header("Location:/lobby.php");
-
-
+$hosp = $_POST['Sel_hosp'];
+$email=htmlspecialchars($_POST["mail"]);
+$password1=htmlspecialchars($_POST["passw"]);
+$password2=htmlspecialchars($_POST["passw1"]);
+$but = $_POST["button"];
+if (empty($but) && $password1==$password2){
+$res = addUser($_POST["fio"],$_POST["phone"],$_POST["diplom"],$_POST["username"],$password1,$email,$hosp);
+echo "<script>alert('Регистрация прошла успешно!');</script>";
+echo "<button type="."button"."class="."btn btn-primary btn-lg btn-block".">Перейти в систему управления.</button>";
+$id = $res['id_employ'];
+echo "<meta http-equiv=refresh content='0; url=http://smd/dmd/lobby.php?id=$id'>";
+}
+else {
+  echo "<script>alert('Не сработало...');</script>";
+}
  ?>

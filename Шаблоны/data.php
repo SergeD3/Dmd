@@ -79,3 +79,27 @@
 </div>
 <textarea class="form-control" aria-label="With textarea"></textarea>
 </div>
+
+
+
+
+============================================================
+<ul class="list-group list-group-horizontal-md">
+    <li class="list-group-item list-group-item-success"><strong>Наблюдение: № </strong><?php echo $return["id_кейса"]; ?></li>
+    <li class="list-group-item list-group-item-success"><strong>Пол: </strong><?php echo $return["Пол"]; ?></li>
+    <li class="list-group-item list-group-item-success"><strong>Возраст: </strong><?php echo $return["Возраст"]; ?></li>
+    <li class="list-group-item list-group-item-success"><strong>Койко-дни: </strong><?php echo $return["койко_дни"]; ?></li>
+    <li class="list-group-item list-group-item-success"><strong>Койко-часы: </strong><?php echo $return["Койко_часы"]; ?></li>
+</ul>
+ <ul class="list-group list-group-horizontal-md mt-2">
+    <li class="list-group-item list-group-item-success"><strong>Дата смерти: </strong><?php echo $return["Дата_смерти"]; ?></li>
+    <li class="list-group-item list-group-item-success"><strong>Дата вскрытия: </strong><?php echo $return["Дата_вскрытия"]; ?></li>
+    <li class="list-group-item list-group-item-success"><strong>Разница в часах: </strong><?php echo $return["Пол"]; ?></li>
+    <li class="list-group-item list-group-item-success"><strong>Дата добавления записи: </strong><?php echo $return["Дата_добавления_записи"]; ?></li>
+</ul>
+<ul class="list-group list-group-horizontal-md mt-2">
+  <li class="list-group-item list-group-item-success"><strong>Дата окончания протокола: </strong><?php echo $return["ДатаПротокола"]; ?></li>
+  <li class="list-group-item list-group-item-success"><strong>Оформление протокола </strong><?php echo $return["Койко_часы"]; ?> <strong>суток</strong></li>
+  <li class="list-group-item list-group-item-success"><strong>Правильность оформления свидетельства: </strong><?php echo $return["СовпадениеПрот"]; ?> </br></li>
+  <li class="list-group-item list-group-item-success"><strong>Обязательность аутопсии: </strong><?php echo $return["ОбязАутоп"]; ?></li>
+</ul>

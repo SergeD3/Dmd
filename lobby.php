@@ -37,7 +37,7 @@
 
     <div class="lobby_main_cont">
       <div class="lobby_cont">
-        <h1>Поиск по кейсу</h1>
+        <h4>Поиск определенного кейса</h4>
           <form class="form-inline" action="certain_key_view.php" method="get">
             <div class="input-group mb-2">
               <div class="input-group-prepend">

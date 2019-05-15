@@ -89,6 +89,9 @@ function patologDiagnoz($id){
   // return mysqli_fetch_assoc($res);
   return $res->fetch_all($resultype=MYSQLI_ASSOC);
 }
-
-
+// Редирект
+function redirect($url){
+  header('Location:' . $url);
+  exit;
+}
  ?>
