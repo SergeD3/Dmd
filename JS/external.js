@@ -9,6 +9,3 @@ else if (f.inlineRadio2.checked) {
   f.hour.disabled = 0;
 }
 }
-$('#myModal').on('shown.bs.modal', function () {
-  $('#myInput').trigger('focus')
-});

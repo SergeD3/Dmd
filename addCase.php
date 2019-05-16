@@ -1,5 +1,5 @@
 <?php include "functions_db.php";
-// $mkb = chooseMKB();
+$mkb = chooseMKB();
 // $numb = $_GET['certainKey1'];
 // // $next = $numb + 1;
 // // $previous = $numb -1;
@@ -54,11 +54,97 @@
 
         <input type="radio" name="inset" value="" id="tab_5">
         <label for="tab_5">Сопутствующие</label>
-
   <!-- Раздел 1 -->
-
 <div id="txt_1">
-
+  <form>
+    <div class="form-row">
+      <div class="col-2">
+        <select class="form-control" id="exampleFormControlSelect1" title="Если оставить Пол, то данные не сохранятся!">
+          <option checked>Пол</option>
+          <option>Мужской</option>
+          <option>Женский</option>
+        </select>
+      </div>
+    <div class="col-2">
+        <input type="text" class="form-control" placeholder="Возраст">
+    </div>
+      <div class="koyki_box">
+          <label for="koyki" class="koyki">Койко-дни: </label>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" onclick="agreeForm(this.form)">
+            <label class="form-check-label" for="inlineRadio1">Дни</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" onclick="agreeForm(this.form)">
+            <label class="form-check-label" for="inlineRadio2">Часы</label>
+            <input type="text" aria-label="First name" class="form-control ml-1" id="days" placeholder="Дни" ><br>
+            <input type="text" aria-label="Last name" class="form-control ml-1" id="hour" placeholder="Часы">
+          </div>
+    </div>
+    <div class="form-group mt-1">
+      <label for="exampleInputPassword1" class="col-sm-1">Дата смерти:</label>
+      <input type="date" class="form-control row col-sm-11 ml-2" name="Date_death" id="Date_death" placeholder="">
+    </div>
+    <div class="form-group mt-1">
+      <label for="exampleInputPassword1" class="col-sm-1">Дата вскрытия:</label>
+      <input type="date" class="form-control row col-sm-11 ml-2" name="Date_autopsy" id="Date_autopsy" placeholder="">
+    </div>
+    <div class="col-1 mt-1">
+      <label for="nabl">Разница в часах</label>
+      <input type="text" class="form-control" disabled>
+    </div>
+    <div class="form-group">
+    <label for="exampleInputPassword1" class="col-sm-3">Дата добавления:</label>
+    <input type="date" class="form-control row col-sm-11 ml-2" name="Date_add" id="Date_add" placeholder="">
+    </div>
+    <div class="form-group">
+    <label for="exampleInputPassword1" class="col-sm-10">Дата окончания протокола:</label>
+    <input type="date" class="form-control row col-sm-11 ml-2" name="Date_end" id="Date_end" placeholder="">
+    </div>
+    <div class="form-group col-md-3">
+    <label for="inputState">Правильность оформления свидетельства:</label>
+    <select id="inputState" class="form-control">
+    <option selected>Да</option>
+    <option>Нет</option>
+    </select>
+    </div>
+    <div class="form-group col-md-2">
+    <label for="inputState">Обязательность аутопсии:</label>
+    <select id="inputState" class="form-control">
+    <option selected>Да</option>
+    <option>Нет</option>
+    </select>
+    </div>
+    <div class="input-group">
+    <div class="input-group-prepend ml-2">
+    <span class="input-group-text" title="Правильность оформления свидетельства">Комментарий к ПОС:</span>
+    </div>
+    <textarea class="form-control" aria-label="With textarea"></textarea>
+    </div>
+    <div class="input-group mt-3">
+    <div class="input-group-prepend ml-2 ">
+    <span class="input-group-text">Комментарий к аутопсии:</span>
+    </div>
+    <textarea class="form-control" aria-label="With textarea"></textarea>
+    </div>
+    </div>
+    <hr class="hr1">
+    <h5>Диагноз по МКБ</h5>
+    <div class="d_mkb">
+      <h5>Заключительный клинический диагноз</h5>
+          <div class="dropdown_select">
+            <select class="form-control row col-sm-5 ml-1" name="ch_mkb" id="ch_mkb" size="1">
+                   <?php
+                     for($i=0; $i<count($mkb); $i++){
+                       $id_loc=$mkb[$i]["id_МКБ"];
+                       $loc=$mkb[$i]["Диагноз"];
+                       echo "<option value =$id_loc>$loc</option>";
+                     }
+                   ?>
+                 </select>
+                 </div>
+      </div>
+  </form>
 </div>
  <!-- Диагноз по МКБ - раздел 2 -->
 <div id="txt_2">
@@ -82,7 +168,17 @@
 </div> -->
 </div>
 </div>
-<script src="external.js"></script>
+<script>function agreeForm(f) {
+// Если поставлен флажок, снимаем блокирование кнопки
+if (f.inlineRadio1.checked) {f.hour.disabled = 1;
+  f.days.disabled = 0;
+}
+// В противном случае вновь блокируем кнопку
+else if (f.inlineRadio2.checked) {
+  f.days.disabled = 1;
+  f.hour.disabled = 0;
+}
+}</script>
 
   </body>
 </html>
