@@ -94,4 +94,30 @@ function redirect($url){
   header('Location:' . $url);
   exit;
 }
+// разница по времени между вскрытием и протоколом
+// function getDay($id){
+//   global $link;
+//   openDB();
+//   $query = "SELECT `кейс`.`id_кейса` AS `id_кейса`,(timestampdiff(DAY,`кейс`.`Дата_вскрытия`,`кейс`.`ДатаПротокола`)+ 1)
+//   from `кейс` where `кейс`.`id_кейса` = $id";
+//   $res = mysqli_query($link,$query);
+//   closeDB();
+//   return $res->fetch_all($resultype=MYSQLI_ASSOC);
+// }
+// function getTime($id){
+//   global $link;
+//   openDB();
+//   $query = "SELECT `кейс`.`id_кейса` AS `id_кейса`",concat(hour(sec_to_time(timestampdiff(SECOND,`кейс`.`Дата_смерти`,`кейс`.`Дата_вскрытия`))),':',minute(sec_to_time(timestampdiff(SECOND,`кейс`.`Дата_смерти`,`кейс`.`Дата_вскрытия`)))) AS `Name_exp_2` from `кейс` $id";
+//   $res = mysqli_query($link,$query);
+//   closeDB();
+//   return $res->fetch_all($resultype=MYSQLI_ASSOC);
+// }
+function editCase($id,$sex,$age,$day,$hour,$dday,$daut,$daterec,$protend,$pos,$autopsy,$commpos,$commaut){
+  global $link;
+  openDB();
+  $query = "UPDATE Кейс SET Пол = $sex,Возраст =$age,койко_дни = $day,Койко_часы = $hour,Дата_смерти = $dday,Дата_вскрытия = $daut,Дата_добавления_записи =$daterec,ДатаПротокола=$protend,СовпадениеПрот = $pos,ОбязАутоп =$autopsy,ПОС_комм = $commpos,Коментарий = $commaut ";
+  $res = mysqli_query($link,$query);
+  closeDB();
+  return $res;
+}
  ?>

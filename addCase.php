@@ -68,7 +68,7 @@ $mkb = chooseMKB();
     <div class="col-2">
         <input type="text" class="form-control" placeholder="Возраст">
     </div>
-      <div class="koyki_box">
+      <div class="koyki_box ml-1">
           <label for="koyki" class="koyki">Койко-дни: </label>
           <div class="form-check form-check-inline">
             <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" onclick="agreeForm(this.form)">

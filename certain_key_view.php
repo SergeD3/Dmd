@@ -6,7 +6,7 @@ $previous = $numb -1;
 $return = certainKey($_GET['certainKey1']);
 $retDiag = klinDiagnoz($_GET['certainKey1']);
 $patDiag = patologDiagnoz($_GET['certainKey1']);
-
+// $ddays = getDay($numb);
  ?>
 <!DOCTYPE html>
 <html lang="ru" dir="ltr">
@@ -108,7 +108,7 @@ $patDiag = patologDiagnoz($_GET['certainKey1']);
    <tbody class="table-success">
       <?php
           echo "<tr><td>".$return["ДатаПротокола"]."</td>";
-          echo "<td>"."</td>";
+          echo "<td>".$ddays["Name_exp_2"]."</td>";
           echo "<td>".$return["СовпадениеПрот"]."</td>";
           echo "<td>".$return["ОбязАутоп"]."</td></tr>";
       ?>
@@ -324,6 +324,7 @@ $patDiag = patologDiagnoz($_GET['certainKey1']);
 </div>
 </div>
 <div class="btn-group mt-1" role="group" aria-label="Basic example">
+  <?php echo $ddays["Name_exp_2"] ?>
   <a href="http://smd/dmd/certain_key_view.php?certainKey1=<?php echo "$previous"; ?> " class="btn btn-dark">Предыдущий кейс</a>
   <a href="http://smd/dmd/lobby.php" class="btn btn-dark">Обратно</a>
   <a href="http://smd/dmd/certain_key_view.php?certainKey1=<?php echo "$next"; ?> " class="btn btn-dark">Следующий кейс</a>
@@ -331,7 +332,7 @@ $patDiag = patologDiagnoz($_GET['certainKey1']);
 <div class="btn-group mt-1" role="group" aria-label="Basic example">
   <a href="#" class="btn btn-dark">Добавить кейс</a>
   <a href="#" class="btn btn-dark">Удалить кейс</a>
-  <a href="#" class="btn btn-dark">Редактировать кейс</a>
+  <a href="http://smd/dmd/editcase.php?id=<?php echo $numb ?>" class="btn btn-dark">Редактировать кейс</a>
 </div>
 </div>
 </div>
