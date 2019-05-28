@@ -102,7 +102,7 @@ function redirect($url){
 //   from `кейс` where `кейс`.`id_кейса` = $id";
 //   $res = mysqli_query($link,$query);
 //   closeDB();
-//   return $res->fetch_all($resultype=MYSQLI_ASSOC);
+//   return $res->fetch_assoc();
 // }
 // function getTime($id){
 //   global $link;
@@ -112,10 +112,10 @@ function redirect($url){
 //   closeDB();
 //   return $res->fetch_all($resultype=MYSQLI_ASSOC);
 // }
-function editCase($id,$sex,$age,$day,$hour,$dday,$daut,$daterec,$protend,$pos,$autopsy,$commpos,$commaut){
+function editCase($sex,$age,$day,$hour,$dday,$daut,$daterec,$protend,$pos,$autopsy,$commpos,$commaut,$id){
   global $link;
   openDB();
-  $query = "UPDATE Кейс SET Пол = $sex,Возраст =$age,койко_дни = $day,Койко_часы = $hour,Дата_смерти = $dday,Дата_вскрытия = $daut,Дата_добавления_записи =$daterec,ДатаПротокола=$protend,СовпадениеПрот = $pos,ОбязАутоп =$autopsy,ПОС_комм = $commpos,Коментарий = $commaut ";
+  $query = "UPDATE Кейс SET `Кейс`.Пол = $sex,`Кейс`.Возраст =$age,`Кейс`.койко_дни = $day,`Кейс`.Койко_часы = $hour,`Кейс`.Дата_смерти = $dday,`Кейс`.Дата_вскрытия = $daut,`Кейс`.Дата_добавления_записи =$daterec,`Кейс`.ДатаПротокола=$protend,`Кейс`.СовпадениеПрот = $pos,`Кейс`.ОбязАутоп = $autopsy,`Кейс`.ПОС_комм = $commpos,`Кейс`.Коментарий = $commaut WHERE `Кейс`.id_кейса = $id";
   $res = mysqli_query($link,$query);
   closeDB();
   return $res;

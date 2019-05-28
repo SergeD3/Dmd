@@ -200,6 +200,32 @@ $patDiag = patologDiagnoz($_GET['certainKey1']);
             </div>
               <textarea class="form-control" aria-label="With textarea"><?php echo $return["Основное_поступП5"]; ?></textarea>
       </div>
+      <h5>Признак несовпадения:</h5>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" >
+        <label class="form-check-label" for="defaultCheck1">
+          Сущность
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="defaultCheck2" checked="<?php if ($return['Этиология_1'] == 0) {echo "checked";} ?>">
+        <label class="form-check-label" for="defaultCheck2">
+          Этиология
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
+        <label class="form-check-label" for="defaultCheck2">
+          Локализация
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
+        <label class="form-check-label" for="defaultCheck2">
+          Ошибочная трактовка
+        </label>
+      </div>
+
         <p>Пояснение:</p>
         <ul class="list2">
           <li>K(1-5) - клинический диагноз с соответствующим номером.</li>
