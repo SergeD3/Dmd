@@ -30,13 +30,10 @@ $patDiag = patologDiagnoz($_GET['certainKey1']);
             <a class="nav-link" href="smd/dmd/index.php">Главная <span class="sr-only">(current)</span></a>
           </li>
         </ul>
-        <!-- <form class="form-inline my-2 my-lg-0">
-          <button type="button" class="btn btn-outline-success" id="but1">Привет,</a></button>
-
-        </form> -->
       </div>
     </nav>
     </div>
+<!-- ///////////////////////////////////////////////////////////////////////////////// -->
 <div class="drm_main_cont">
   <div class="drm_cont">
     <div class="tabs">
@@ -55,8 +52,7 @@ $patDiag = patologDiagnoz($_GET['certainKey1']);
         <input type="radio" name="inset" value="" id="tab_5">
         <label for="tab_5">Сопутствующие</label>
 
-  <!-- Раздел 1 -->
-
+<!-- ///////////////////////////////////////////////////////////////////////////////// -->
 <div id="txt_1">
   <table class="table table-bordered table-striped">
     <thead>
@@ -120,8 +116,13 @@ $patDiag = patologDiagnoz($_GET['certainKey1']);
       <ul class="list-group list-group-horizontal-md mt-2">
         <li class="list-group-item list-group-item-success"><strong>Комментарий по аутопсии: </strong><?php echo $return["Коментарий"]; ?></li>
       </ul>
+      <div class="btn-group mt-3" role="group" aria-label="Basic example">
+        <a href="#" class="btn btn-dark">Добавить кейс</a>
+        <a href="#" class="btn btn-dark">Удалить кейс</a>
+        <a href="http://smd/dmd/editcase.php?id=<?php echo $numb ?>" class="btn btn-dark">Редактировать кейс</a>
+      </div>
 </div>
- <!-- Диагноз по МКБ - раздел 2 -->
+<!-- ///////////////////////////////////////////////////////////////////////////////// -->
 <div id="txt_2">
       <div class="d_mkb">
         <div class="klinika">
@@ -148,6 +149,7 @@ $patDiag = patologDiagnoz($_GET['certainKey1']);
     </div>
   </div>
 </div>
+<!-- ///////////////////////////////////////////////////////////////////////////////// -->
 <div id="txt_3">
     <h5>Заключительный диагноз - основное.</h5>
       <div class="input-group">
@@ -232,6 +234,7 @@ $patDiag = patologDiagnoz($_GET['certainKey1']);
           <li>P(1-5) - патологоанатомический диагноз с соответствующим номером.</li>
         </ul>
 </div>
+<!-- ///////////////////////////////////////////////////////////////////////////////// -->
 <div id="txt_4">
   <h5>Заключительный диагноз - осложнения.</h5>
     <div class="input-group">
@@ -290,6 +293,7 @@ $patDiag = patologDiagnoz($_GET['certainKey1']);
       <li>P(1-5) - патологоанатомический диагноз с соответствующим номером.</li>
     </ul>
 </div>
+<!-- ///////////////////////////////////////////////////////////////////////////////// -->
 <div id="txt_5">
   <h5>Сопутствующие диагнозы.</h5>
     <div class="input-group">
@@ -349,16 +353,12 @@ $patDiag = patologDiagnoz($_GET['certainKey1']);
     </ul>
 </div>
 </div>
-<div class="btn-group mt-1" role="group" aria-label="Basic example">
+<!-- ///////////////////////////////////////////////////////////////////////////////// -->
+<div class="btn-group float-right mt-1" role="group" aria-label="Basic example">
   <?php echo $ddays["Name_exp_2"] ?>
   <a href="http://smd/dmd/certain_key_view.php?certainKey1=<?php echo "$previous"; ?> " class="btn btn-dark">Предыдущий кейс</a>
   <a href="http://smd/dmd/lobby.php" class="btn btn-dark">Обратно</a>
   <a href="http://smd/dmd/certain_key_view.php?certainKey1=<?php echo "$next"; ?> " class="btn btn-dark">Следующий кейс</a>
-</div>
-<div class="btn-group mt-1" role="group" aria-label="Basic example">
-  <a href="#" class="btn btn-dark">Добавить кейс</a>
-  <a href="#" class="btn btn-dark">Удалить кейс</a>
-  <a href="http://smd/dmd/editcase.php?id=<?php echo $numb ?>" class="btn btn-dark">Редактировать кейс</a>
 </div>
 </div>
 </div>

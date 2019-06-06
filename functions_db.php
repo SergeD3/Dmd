@@ -49,7 +49,7 @@ function chooseMKB (){
 function GetKeys(){
   global $link;
   openDB();
-  $query = "SELECT * FROM keys";
+  $query = "SELECT * FROM Кейс";
   $res = mysqli_query($link,$query);
   closeDB();
   return $res->fetch_all($resultype=MYSQLI_ASSOC);
@@ -112,12 +112,12 @@ function redirect($url){
 //   closeDB();
 //   return $res->fetch_all($resultype=MYSQLI_ASSOC);
 // }
-function editCase($sex,$age,$day,$hour,$dday,$daut,$daterec,$protend,$pos,$autopsy,$commpos,$commaut,$id){
+function editCase($id,$age,$sex,$kd,$kh,$dd,$da,$dadd,$dp,$pos,$oa,$pc,$ca){
   global $link;
   openDB();
-  $query = "UPDATE Кейс SET `Кейс`.Пол = $sex,`Кейс`.Возраст =$age,`Кейс`.койко_дни = $day,`Кейс`.Койко_часы = $hour,`Кейс`.Дата_смерти = $dday,`Кейс`.Дата_вскрытия = $daut,`Кейс`.Дата_добавления_записи =$daterec,`Кейс`.ДатаПротокола=$protend,`Кейс`.СовпадениеПрот = $pos,`Кейс`.ОбязАутоп = $autopsy,`Кейс`.ПОС_комм = $commpos,`Кейс`.Коментарий = $commaut WHERE `Кейс`.id_кейса = $id";
-  $res = mysqli_query($link,$query);
+  $res = mysqli_query($link,"UPDATE `Кейс` SET Возраст ='$age', Пол = '$sex', койко_дни = '$kd', Койко_часы = '$kh', Дата_смерти = '$dd', Дата_вскрытия = '$da', Дата_добавления_записи = '$dadd', ДатаПротокола = '$dp', СовпадениеПрот = '$pos', ОбязАутоп = '$oa', ПОС_комм = '$pc', Коментарий = '$ca' WHERE id_кейса = '$id'");
   closeDB();
   return $res;
 }
+
  ?>
