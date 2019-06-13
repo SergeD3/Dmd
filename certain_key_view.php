@@ -117,8 +117,6 @@ $patDiag = patologDiagnoz($_GET['certainKey1']);
         <li class="list-group-item list-group-item-success"><strong>Комментарий по аутопсии: </strong><?php echo $return["Коментарий"]; ?></li>
       </ul>
       <div class="btn-group mt-3" role="group" aria-label="Basic example">
-        <a href="#" class="btn btn-dark">Добавить кейс</a>
-        <a href="#" class="btn btn-dark">Удалить кейс</a>
         <a href="http://smd/dmd/editcase.php?id=<?php echo $numb ?>" class="btn btn-dark">Редактировать кейс</a>
       </div>
 </div>
@@ -127,26 +125,29 @@ $patDiag = patologDiagnoz($_GET['certainKey1']);
       <div class="d_mkb">
         <div class="klinika">
         <table class="table table-bordered table-striped">
-      <thead>
-        <tr>
-          <th class="bg-success" scope="col">Номер МКБ</th>
-          <th class="bg-success" scope="col">Клинический диагноз</th>
-          <th class="bg-success" scope="col">Номер МКБ</th>
-          <th class="bg-success" scope="col">Патологоанатомический диагноз</th>
-        </tr>
-      </thead>
-      <tbody class="table-success">
-        <?php
-        for($i=0; $i<count($retDiag);$i++){
-            echo "<tr><td>".$retDiag[$i]["id_МКБ"]."</td>";
-            echo "<td>".$retDiag[$i]["Диагноз"]."</td>";
-            echo "<td>".$patDiag[$i]["id_МКБ"]."</td>";
-            echo "<td>".$patDiag[$i]["Диагноз"]."</td></tr>";
-            }
-        ?>
-      </tbody>
-    </table>
+            <thead>
+              <tr>
+                <th class="bg-success" scope="col">Номер МКБ</th>
+                <th class="bg-success" scope="col">Клинический диагноз</th>
+                <th class="bg-success" scope="col">Номер МКБ</th>
+                <th class="bg-success" scope="col">Патологоанатомический диагноз</th>
+              </tr>
+            </thead>
+            <tbody class="table-success">
+              <?php
+              for($i=0; $i<count($retDiag);$i++){
+                  echo "<tr><td>".$retDiag[$i]["id_МКБ"]."</td>";
+                  echo "<td>".$retDiag[$i]["Диагноз"]."</td>";
+                  echo "<td>".$patDiag[$i]["id_МКБ"]."</td>";
+                  echo "<td>".$patDiag[$i]["Диагноз"]."</td></tr>";
+                  }
+              ?>
+            </tbody>
+          </table>
     </div>
+  </div>
+  <div class="btn-group mt-3" role="group" aria-label="Basic example">
+    <a href="http://smd/dmd/editCaseDiag.php?id=<?php echo $numb ?>" class="btn btn-dark">Редактировать кейс</a>
   </div>
 </div>
 <!-- ///////////////////////////////////////////////////////////////////////////////// -->
@@ -204,35 +205,50 @@ $patDiag = patologDiagnoz($_GET['certainKey1']);
       </div>
       <h5>Признак несовпадения:</h5>
       <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" >
         <label class="form-check-label" for="defaultCheck1">
-          Сущность
+        <strong>Сущность:</strong> <?php if ($return['Сущность_1'] == 0) {
+            echo "Не совпадение";
+          }else {
+            echo "Совпадение";
+          } ?>
         </label>
       </div>
       <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="defaultCheck2" checked="<?php if ($return['Этиология_1'] == 0) {echo "checked";} ?>">
         <label class="form-check-label" for="defaultCheck2">
-          Этиология
+          <strong>Этиология:</strong> <?php if ($return['Этиология_1'] == 0) {
+            echo "Не совпадение";
+          }else {
+            echo "Совпадение";
+          } ?>
         </label>
       </div>
       <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
         <label class="form-check-label" for="defaultCheck2">
-          Локализация
+          <strong>Локализация:</strong> <?php if ($return['Локализация_1'] == 0) {
+            echo "Не совпадение";
+          }else {
+            echo "Совпадение";
+          } ?>
         </label>
       </div>
       <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
         <label class="form-check-label" for="defaultCheck2">
-          Ошибочная трактовка
+          <strong>Ошибочная трактовка:</strong> <?php if ($return['ОщибТракт_1'] == 0) {
+            echo "Не совпадение";
+          }else {
+            echo "Совпадение";
+          } ?>
         </label>
       </div>
-
+        <br>
         <p>Пояснение:</p>
         <ul class="list2">
           <li>K(1-5) - клинический диагноз с соответствующим номером.</li>
           <li>P(1-5) - патологоанатомический диагноз с соответствующим номером.</li>
         </ul>
+        <div class="btn-group mt-3" role="group" aria-label="Basic example">
+          <a href="http://smd/dmd/editMainDiag.php?id=<?php echo $numb ?>" class="btn btn-dark">Редактировать кейс</a>
+        </div>
 </div>
 <!-- ///////////////////////////////////////////////////////////////////////////////// -->
 <div id="txt_4">

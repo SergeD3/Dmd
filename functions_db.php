@@ -8,7 +8,7 @@ function openDB(){
   $password = "";
   $db_name = "больница";
   $link = mysqli_connect($host, $user, $password, $db_name)
-  or die("Нэ працюе:" . mysqli_error($link));
+  or die("Не работает:" . mysqli_error($link));
   mysqli_query($link,"SET NAMES UTF8");
 }
 function closeDB(){
@@ -119,5 +119,20 @@ function editCase($id,$age,$sex,$kd,$kh,$dd,$da,$dadd,$dp,$pos,$oa,$pc,$ca){
   closeDB();
   return $res;
 }
-
+function editDaig($id,$klinId,$patId){
+  global $link;
+  openDB();
+  $res = mysqli_query($link,"UPDATE `клиническийдиагноз`,`патоалогическийдиагноз`
+  SET `клиническийдиагноз`.id_кейса = $id, `клиническийдиагноз`.id_МКБ = $klinId,`патоалогическийдиагноз`.id_кейса = $id,`патоалогическийдиагноз`.id_МКБ = $patId
+  WHERE `клиническийдиагноз`.id_кейса = '$id' AND `патоалогическийдиагноз`.id_кейса = $id ");
+  closeDB();
+  return $res;
+}
+function editMainDaig($id,$klin1,$klin2,$klin3,$klin4,$klin5,$pat1,$pat2,$pat3,$pat4,$pat5,$entity,$etiolg,$location,$error){
+  global $link;
+  openDB();
+  $res = mysqli_query($link,"UPDATE `Кейс` Set Основное_поступление(К) =$klin1,Основное_поступК2 =$klin2,Основное_поступК3 = $klin3,Основное_поступК4 = $klin4,Основное_поступК5 = $klin5,Основное_поступление(П) = $pat1,Основное_поступП2 = $pat2,Основное_поступП3 = $pat3,Основное_поступП4 = $pat4,Основное_поступП5 = $pat5,Сущность_1 = $entity, Этиология_1 = $etiolg, Локализация_1 = $location, ОщибТракт_1 = $error WHERE id_кейса = $id");
+  closeDB();
+  return $res;
+}
  ?>
