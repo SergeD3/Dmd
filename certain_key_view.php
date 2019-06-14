@@ -15,7 +15,10 @@ $patDiag = patologDiagnoz($_GET['certainKey1']);
     <link rel="stylesheet" href="CSS\master.css">
     <title>Lobby</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/dd7a2545f2.js"></script>
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -157,11 +160,11 @@ $patDiag = patologDiagnoz($_GET['certainKey1']);
           <div class="input-group-prepend">
             <span class="input-group-text">K-1</span>
           </div>
-            <textarea class="form-control" aria-label="With textarea"><?php echo $return["Основное_поступление(К)"]; ?></textarea>
+            <textarea class="form-control" aria-label="With textarea"><?php echo $return["Основное_поступлениеК"]; ?></textarea>
             <div class="input-group-prepend ml-1">
               <span class="input-group-text">P-1</span>
             </div>
-              <textarea class="form-control" aria-label="With textarea"><?php echo $return["Основное_поступление(П)"]; ?></textarea>
+              <textarea class="form-control" aria-label="With textarea"><?php echo $return["Основное_поступлениеП"]; ?></textarea>
       </div>
       <div class="input-group mt-1">
           <div class="input-group-prepend">
@@ -240,15 +243,21 @@ $patDiag = patologDiagnoz($_GET['certainKey1']);
           } ?>
         </label>
       </div>
-        <br>
-        <p>Пояснение:</p>
-        <ul class="list2">
-          <li>K(1-5) - клинический диагноз с соответствующим номером.</li>
-          <li>P(1-5) - патологоанатомический диагноз с соответствующим номером.</li>
-        </ul>
-        <div class="btn-group mt-3" role="group" aria-label="Basic example">
+        <div class="btn-group mt-2" role="group" aria-label="Basic example">
           <a href="http://smd/dmd/editMainDiag.php?id=<?php echo $numb ?>" class="btn btn-dark">Редактировать кейс</a>
         </div>
+  <button class="btn btn-danger mt-2 float-right" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+    Помощь
+  </button>
+<div class="collapse" id="collapseExample">
+  <div class="card card-body">
+    <p><strong>Пояснение:</strong></p>
+    <ul class="list2">
+      <li>K(1-5) - клинический диагноз с соответствующим номером.</li>
+      <li>P(1-5) - патологоанатомический диагноз с соответствующим номером.</li>
+    </ul>
+  </div>
+</div>
 </div>
 <!-- ///////////////////////////////////////////////////////////////////////////////// -->
 <div id="txt_4">
@@ -303,11 +312,58 @@ $patDiag = patologDiagnoz($_GET['certainKey1']);
         </div>
             <textarea class="form-control" aria-label="With textarea"><?php echo $return["Ослож_5_пд"]; ?></textarea>
     </div>
-    <p>Пояснение:</p>
-    <ul class="list2">
-      <li>K(1-5) - клинический диагноз с соответствующим номером.</li>
-      <li>P(1-5) - патологоанатомический диагноз с соответствующим номером.</li>
-    </ul>
+    <h5>Признак несовпадения:</h5>
+    <div class="form-check">
+      <label class="form-check-label" for="defaultCheck1">
+      <strong>Сущность:</strong> <?php if ($return['Сущность_2'] == 0) {
+          echo "Не совпадение";
+        }else {
+          echo "Совпадение";
+        } ?>
+      </label>
+    </div>
+    <div class="form-check">
+      <label class="form-check-label" for="defaultCheck2">
+        <strong>Этиология:</strong> <?php if ($return['Этиология_2'] == 0) {
+          echo "Не совпадение";
+        }else {
+          echo "Совпадение";
+        } ?>
+      </label>
+    </div>
+    <div class="form-check">
+      <label class="form-check-label" for="defaultCheck2">
+        <strong>Локализация:</strong> <?php if ($return['Локализация_2'] == 0) {
+          echo "Не совпадение";
+        }else {
+          echo "Совпадение";
+        } ?>
+      </label>
+    </div>
+    <div class="form-check">
+      <label class="form-check-label" for="defaultCheck2">
+        <strong>Ошибочная трактовка:</strong> <?php if ($return['ОщибТракт_2'] == 0) {
+          echo "Не совпадение";
+        }else {
+          echo "Совпадение";
+        } ?>
+      </label>
+    </div>
+    <div class="btn-group mt-2" role="group" aria-label="Basic example">
+      <a href="http://smd/dmd/editComplication.php?id=<?php echo $numb ?>" class="btn btn-dark">Редактировать кейс</a>
+    </div>
+    <button class="btn btn-danger mt-2 float-right" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+      Помощь
+    </button>
+  <div class="collapse" id="collapseExample">
+    <div class="card card-body">
+      <p><strong>Пояснение:</strong></p>
+      <ul class="list2">
+        <li>K(1-5) - клинический диагноз с соответствующим номером.</li>
+        <li>P(1-5) - патологоанатомический диагноз с соответствующим номером.</li>
+      </ul>
+    </div>
+  </div>
 </div>
 <!-- ///////////////////////////////////////////////////////////////////////////////// -->
 <div id="txt_5">
@@ -362,13 +418,22 @@ $patDiag = patologDiagnoz($_GET['certainKey1']);
         </div>
             <textarea class="form-control" aria-label="With textarea"><?php echo $return["Сопут_5_пд"]; ?></textarea>
     </div>
-    <p>Пояснение:</p>
-    <ul class="list2">
-      <li>K(1-5) - клинический диагноз с соответствующим номером.</li>
-      <li>P(1-5) - патологоанатомический диагноз с соответствующим номером.</li>
-    </ul>
-</div>
-</div>
+    <div class="btn-group mt-2" role="group" aria-label="Basic example">
+      <a href="http://smd/dmd/editComplication.php?id=<?php echo $numb ?>" class="btn btn-dark">Редактировать кейс</a>
+    </div>
+    <button class="btn btn-danger mt-2 float-right" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+      Помощь
+    </button>
+  <div class="collapse" id="collapseExample">
+    <div class="card card-body">
+      <p><strong>Пояснение:</strong></p>
+      <ul class="list2">
+        <li><i>K(1-5) - клинический диагноз с соответствующим номером.</i></li>
+        <li><i>P(1-5) - патологоанатомический диагноз с соответствующим номером.</i></li>
+      </ul>
+    </div>
+  </div>
+ </div>
 <!-- ///////////////////////////////////////////////////////////////////////////////// -->
 <div class="btn-group float-right mt-1" role="group" aria-label="Basic example">
   <?php echo $ddays["Name_exp_2"] ?>
@@ -378,7 +443,8 @@ $patDiag = patologDiagnoz($_GET['certainKey1']);
 </div>
 </div>
 </div>
+<!-- ///////////////////////////////////////////////////////////////////////////////// -->
 <script src="external.js"></script>
-
+<!-- ///////////////////////////////////////////////////////////////////////////////// -->
   </body>
 </html>

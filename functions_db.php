@@ -23,7 +23,6 @@ function getAllHosp(){
   openDB();
   $query = "SELECT id_hosp,название FROM hosp";
   $res1 = mysqli_query($link,$query);
-// or die('Query failed: '. mysqli_error());
   closeDB();
   return $res1->fetch_all($resultype=MYSQLI_ASSOC);
 }
@@ -62,8 +61,6 @@ function certainKey($numb_k){
   $res = mysqli_query($link,$query);
   closeDB();
   return mysqli_fetch_assoc($res);
-  // $answ = mysqli_fetch_assoc($res);
-  // return $answ["id_кейса"];
 }
 // берём клин диагнозы по определённому кейсу
 function klinDiagnoz($id){
@@ -94,24 +91,6 @@ function redirect($url){
   header('Location:' . $url);
   exit;
 }
-// разница по времени между вскрытием и протоколом
-// function getDay($id){
-//   global $link;
-//   openDB();
-//   $query = "SELECT `кейс`.`id_кейса` AS `id_кейса`,(timestampdiff(DAY,`кейс`.`Дата_вскрытия`,`кейс`.`ДатаПротокола`)+ 1)
-//   from `кейс` where `кейс`.`id_кейса` = $id";
-//   $res = mysqli_query($link,$query);
-//   closeDB();
-//   return $res->fetch_assoc();
-// }
-// function getTime($id){
-//   global $link;
-//   openDB();
-//   $query = "SELECT `кейс`.`id_кейса` AS `id_кейса`",concat(hour(sec_to_time(timestampdiff(SECOND,`кейс`.`Дата_смерти`,`кейс`.`Дата_вскрытия`))),':',minute(sec_to_time(timestampdiff(SECOND,`кейс`.`Дата_смерти`,`кейс`.`Дата_вскрытия`)))) AS `Name_exp_2` from `кейс` $id";
-//   $res = mysqli_query($link,$query);
-//   closeDB();
-//   return $res->fetch_all($resultype=MYSQLI_ASSOC);
-// }
 function editCase($id,$age,$sex,$kd,$kh,$dd,$da,$dadd,$dp,$pos,$oa,$pc,$ca){
   global $link;
   openDB();
@@ -128,11 +107,18 @@ function editDaig($id,$klinId,$patId){
   closeDB();
   return $res;
 }
-function editMainDaig($id,$klin1,$klin2,$klin3,$klin4,$klin5,$pat1,$pat2,$pat3,$pat4,$pat5,$entity,$etiolg,$location,$error){
+function editMainDaig($id,$klin1,$klin2,$klin3,$klin4,$klin5,$pat1,$pat2,$pat3,$pat4,$pat5,$entity,$etio,$loc,$eror){
   global $link;
   openDB();
-  $res = mysqli_query($link,"UPDATE `Кейс` Set Основное_поступление(К) =$klin1,Основное_поступК2 =$klin2,Основное_поступК3 = $klin3,Основное_поступК4 = $klin4,Основное_поступК5 = $klin5,Основное_поступление(П) = $pat1,Основное_поступП2 = $pat2,Основное_поступП3 = $pat3,Основное_поступП4 = $pat4,Основное_поступП5 = $pat5,Сущность_1 = $entity, Этиология_1 = $etiolg, Локализация_1 = $location, ОщибТракт_1 = $error WHERE id_кейса = $id");
+  $res = mysqli_query($link,"UPDATE `Кейс` Set Основное_поступлениеК = \"$klin1\",Основное_поступК2 =\"$klin2\",Основное_поступК3 = \"$klin3\",Основное_поступК4 = \"$klin4\",Основное_поступК5 = \"$klin5\",Основное_поступлениеП = \"$pat1\",Основное_поступП2 = \"$pat2\",Основное_поступП3 = \"$pat3\",Основное_поступП4 = \"$pat4\",Основное_поступП5 = \"$pat5\",Сущность_1 = $entity, Этиология_1 = $etio, Локализация_1 = $loc, ОщибТракт_1 = $eror WHERE id_кейса = $id");
   closeDB();
   return $res;
+}
+function editComplication($id,$klin1,$klin2,$klin3,$klin4,$klin5,$pat1,$pat2,$pat3,$pat4,$pat5,$entity,$etio,$loc,$eror){
+global $link;
+openDB();
+$res = mysqli_query($link,"UPDATE `Кейс` Set Осложнения_К = \"$klin1\",Ослож_2_кд =\"$klin2\",Ослож_3_кд = \"$klin3\",Ослож_4_кд = \"$klin4\",Ослож_5_кд = \"$klin5\",Осложнения_П = \"$pat1\",Ослож_2_пд = \"$pat2\",Ослож_3_пд = \"$pat3\",Ослож_4_пд = \"$pat4\",Ослож_5_пд = \"$pat5\",Сущность_2 = $entity, Этиология_2 = $etio, Локализация_2 = $loc, ОщибТракт_2 = $eror WHERE id_кейса = $id");
+closeDB();
+return $res;
 }
  ?>

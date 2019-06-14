@@ -156,3 +156,7 @@ h1{
   height: 2px;
   background-color: darkgrey;
 }
+.fas{
+  float: right;
+  color: red;
+}
