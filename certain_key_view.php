@@ -6,7 +6,6 @@ $previous = $numb -1;
 $return = certainKey($_GET['certainKey1']);
 $retDiag = klinDiagnoz($_GET['certainKey1']);
 $patDiag = patologDiagnoz($_GET['certainKey1']);
-// $ddays = getDay($numb);
  ?>
 <!DOCTYPE html>
 <html lang="ru" dir="ltr">
@@ -35,7 +34,6 @@ $patDiag = patologDiagnoz($_GET['certainKey1']);
         </ul>
       </div>
     </nav>
-    </div>
 <!-- ///////////////////////////////////////////////////////////////////////////////// -->
 <div class="drm_main_cont">
   <div class="drm_cont">
@@ -54,7 +52,6 @@ $patDiag = patologDiagnoz($_GET['certainKey1']);
 
         <input type="radio" name="inset" value="" id="tab_5">
         <label for="tab_5">Сопутствующие</label>
-
 <!-- ///////////////////////////////////////////////////////////////////////////////// -->
 <div id="txt_1">
   <table class="table table-bordered table-striped">
@@ -122,6 +119,8 @@ $patDiag = patologDiagnoz($_GET['certainKey1']);
       <div class="btn-group mt-3" role="group" aria-label="Basic example">
         <a href="http://smd/dmd/editcase.php?id=<?php echo $numb ?>" class="btn btn-dark">Редактировать кейс</a>
       </div>
+      <a href="http://smd/dmd/deleteCase_contrl.php?id=<?php echo $numb ?>" class="btn btn-danger mt-3 float-right">Удалить кейс</a>
+
 </div>
 <!-- ///////////////////////////////////////////////////////////////////////////////// -->
 <div id="txt_2">
@@ -151,6 +150,7 @@ $patDiag = patologDiagnoz($_GET['certainKey1']);
   </div>
   <div class="btn-group mt-3" role="group" aria-label="Basic example">
     <a href="http://smd/dmd/editCaseDiag.php?id=<?php echo $numb ?>" class="btn btn-dark">Редактировать кейс</a>
+    <a href="http://smd/dmd/compareProcedure_contrl.php?id=<?php echo $numb ?>" class="btn btn-dark">Сравнение по МКБ</a>
   </div>
 </div>
 <!-- ///////////////////////////////////////////////////////////////////////////////// -->
@@ -372,11 +372,11 @@ $patDiag = patologDiagnoz($_GET['certainKey1']);
         <div class="input-group-prepend">
           <span class="input-group-text">K-1</span>
         </div>
-          <textarea class="form-control" aria-label="With textarea"><?php echo $return["Сопутствующие_диагнозы(К)"]; ?></textarea>
+          <textarea class="form-control" aria-label="With textarea"><?php echo $return["Сопутствующие_диагнозыК"]; ?></textarea>
         <div class="input-group-prepend ml-1">
             <span class="input-group-text">P-1</span>
         </div>
-            <textarea class="form-control" aria-label="With textarea"><?php echo $return["Сопутствующие_диагнозы(П)"]; ?></textarea>
+            <textarea class="form-control" aria-label="With textarea"><?php echo $return["Сопутствующие_диагнозыП"]; ?></textarea>
     </div>
     <div class="input-group mt-1">
         <div class="input-group-prepend">
@@ -418,12 +418,50 @@ $patDiag = patologDiagnoz($_GET['certainKey1']);
         </div>
             <textarea class="form-control" aria-label="With textarea"><?php echo $return["Сопут_5_пд"]; ?></textarea>
     </div>
+    <h5>Признак несовпадения:</h5>
+    <div class="form-check">
+      <label class="form-check-label" for="defaultCheck1">
+      <strong>Сущность:</strong> <?php if ($return['Сущность_3'] == 0) {
+          echo "Не совпадение";
+        }else {
+          echo "Совпадение";
+        } ?>
+      </label>
+    </div>
+    <div class="form-check">
+      <label class="form-check-label" for="defaultCheck2">
+        <strong>Этиология:</strong> <?php if ($return['Этиология_3'] == 0) {
+          echo "Не совпадение";
+        }else {
+          echo "Совпадение";
+        } ?>
+      </label>
+    </div>
+    <div class="form-check">
+      <label class="form-check-label" for="defaultCheck2">
+        <strong>Локализация:</strong> <?php if ($return['Локализация_3'] == 0) {
+          echo "Не совпадение";
+        }else {
+          echo "Совпадение";
+        } ?>
+      </label>
+    </div>
+    <div class="form-check">
+      <label class="form-check-label" for="defaultCheck2">
+        <strong>Ошибочная трактовка:</strong> <?php if ($return['ОщибТракт_3'] == 0) {
+          echo "Не совпадение";
+        }else {
+          echo "Совпадение";
+        } ?>
+      </label>
+    </div>
     <div class="btn-group mt-2" role="group" aria-label="Basic example">
-      <a href="http://smd/dmd/editComplication.php?id=<?php echo $numb ?>" class="btn btn-dark">Редактировать кейс</a>
+      <a href="http://smd/dmd/editAccomp.php?id=<?php echo $numb ?>" class="btn btn-dark">Редактировать кейс</a>
     </div>
     <button class="btn btn-danger mt-2 float-right" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
       Помощь
     </button>
+    <!-- ///////////////////////////////////////////////////////////////////////////////// -->
   <div class="collapse" id="collapseExample">
     <div class="card card-body">
       <p><strong>Пояснение:</strong></p>
@@ -434,13 +472,13 @@ $patDiag = patologDiagnoz($_GET['certainKey1']);
     </div>
   </div>
  </div>
-<!-- ///////////////////////////////////////////////////////////////////////////////// -->
-<div class="btn-group float-right mt-1" role="group" aria-label="Basic example">
-  <?php echo $ddays["Name_exp_2"] ?>
+ <!-- ///////////////////////////////////////////////////////////////////////////////// -->
+
+</div>
+<div class="btn-group mt-2" role="group" aria-label="Basic example">
   <a href="http://smd/dmd/certain_key_view.php?certainKey1=<?php echo "$previous"; ?> " class="btn btn-dark">Предыдущий кейс</a>
   <a href="http://smd/dmd/lobby.php" class="btn btn-dark">Обратно</a>
   <a href="http://smd/dmd/certain_key_view.php?certainKey1=<?php echo "$next"; ?> " class="btn btn-dark">Следующий кейс</a>
-</div>
 </div>
 </div>
 <!-- ///////////////////////////////////////////////////////////////////////////////// -->

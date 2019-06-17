@@ -93,6 +93,7 @@ $patDiag = patologDiagnoz($_GET['id']);
             </div>
                 <textarea class="form-control" name="compPat5" aria-label="With textarea"><?php echo $return["Ослож_5_пд"]; ?></textarea>
         </div>
+<!-- ///////////////////////////////////////////////////////////////////////////////// -->
         <p title="Если признак совпадает, то необходимо поставить галочку"><strong>Признак несовпадения:</strong></p>
             <div class="form-check">
               <input class="form-check-input" type="checkbox" name="entity2" value="-1" id="defaultCheck1">

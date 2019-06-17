@@ -2,16 +2,17 @@
 include "functions_db.php";
       /////////////////////////////////////////
 $id = $_POST['id_c'];
-$klin1 = htmlspecialchars($_POST['compKlin1']);
-$klin2 = htmlspecialchars($_POST['compKlin2']);
-$klin3 = htmlspecialchars($_POST['compKlin3']);
-$klin4 = htmlspecialchars($_POST['compKlin4']);
-$klin5 = htmlspecialchars($_POST['compKlin5']);
-$pat1 = htmlspecialchars($_POST['compPat1']);
-$pat2 = htmlspecialchars($_POST['compPat2']);
-$pat3 = htmlspecialchars($_POST['compPat3']);
-$pat4 = htmlspecialchars($_POST['compPat4']);
-$pat5 = htmlspecialchars($_POST['compPat5']);
+$klin1 = clean($_POST['compKlin1']);
+$klin2 = clean($_POST['compKlin2']);
+$klin3 = clean($_POST['compKlin3']);
+$klin4 = clean($_POST['compKlin4']);
+$klin5 = clean($_POST['compKlin5']);
+      /////////////////////////////////////////
+$pat1 = clean($_POST['compPat1']);
+$pat2 = clean($_POST['compPat2']);
+$pat3 = clean($_POST['compPat3']);
+$pat4 = clean($_POST['compPat4']);
+$pat5 = clean($_POST['compPat5']);
       /////////////////////////////////////////
       if (empty($_POST['entity2'])) {
         $entity = 0;

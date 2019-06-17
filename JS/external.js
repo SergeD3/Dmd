@@ -9,9 +9,6 @@ else if (f.inlineRadio2.checked) {
   f.hour.disabled = 0;
 }
 }
-$(function () {
-  $('[data-toggle="tooltip"]').tooltip()
-})
 // Date.daysBetween = function( date1, date2 ) {
 //   //Get 1 day in milliseconds
 //   var one_day=1000*60*60*24;
@@ -36,13 +33,13 @@ $(function () {
 //            + Jan1st2010.toLocaleDateString() + ': '
 //            + Date.daysBetween(Jan1st2010, today));
 //Текущая дата
-    var todayDate = new Date();
-
-    //Выбранная дата
-    var currentDate = new Date(2014, 02, 23);
-
-    //Разница во времени
-    var dateDifference = currentDate.getTime() - todayDate.getTime();
-
-    //Дата, созданная из остатка времени
-    var remainsDate = new Date(dateDifference);
+    // var todayDate = new Date();
+    //
+    // //Выбранная дата
+    // var currentDate = new Date(2014, 02, 23);
+    //
+    // //Разница во времени
+    // var dateDifference = currentDate.getTime() - todayDate.getTime();
+    //
+    // //Дата, созданная из остатка времени
+    // var remainsDate = new Date(dateDifference);
