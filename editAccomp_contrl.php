@@ -2,20 +2,18 @@
 include "functions_db.php";
       /////////////////////////////////////////
 $id = $_POST['id_c'];
-$sopK = $_POST['sopKlin'];
-$sopP = $_POST['sopPat'];
       /////////////////////////////////////////
-$sopK0 = clean($sopK[0]);
-$sopK1 = clean($sopK[1]);
-$sopK2 = clean($sopK[2]);
-$sopK3 = clean($sopK[3]);
-$sopK4 = clean($sopK[4]);
+$sopK0 = clean($_POST['sopKlin0']);
+$sopK1 = clean($_POST['sopKlin1']);
+$sopK2 = clean($_POST['sopKlin2']);
+$sopK3 = clean($_POST['sopKlin3']);
+$sopK4 = clean($_POST['sopKlin4']);
       /////////////////////////////////////////
-$sopP0 = clean($sopP[0]);
-$sopP1 = clean($sopP[1]);
-$sopP2 = clean($sopP[2]);
-$sopP3 = clean($sopP[3]);
-$sopP4 = clean($sopP[4]);
+$sopP0 = clean($_POST['sopPat0']);
+$sopP1 = clean($_POST['sopPat1']);
+$sopP2 = clean($_POST['sopPat2']);
+$sopP3 = clean($_POST['sopPat3']);
+$sopP4 = clean($_POST['sopPat4']);
       /////////////////////////////////////////
       if (empty($_POST['entity3'])) {
         $entity = 0;

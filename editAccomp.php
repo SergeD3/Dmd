@@ -6,6 +6,7 @@ $previous = $numb -1;
 $return = certainKey($_GET['id']);
 $retDiag = klinDiagnoz($_GET['id']);
 $patDiag = patologDiagnoz($_GET['id']);
+session_start();
  ?>
  <!DOCTYPE html>
  <html lang="ru" dir="ltr">
@@ -33,6 +34,16 @@ $patDiag = patologDiagnoz($_GET['id']);
             <a class="nav-link" href="lobby.php">Главная <span class="sr-only">(current)</span></a>
           </li>
         </ul>
+        <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+          <div class="btn-group" role="group">
+            <button id="btnGroupDrop1" type="button" class="btn btn-outline-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Привет,<?php echo $_SESSION['login']; ?>
+            </button>
+            <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+              <a class="dropdown-item" href="out.php">Выход</a>
+            </div>
+          </div>
+        </div>
       </div>
     </nav>
 <!-- ///////////////////////////////////////////////////////////////////////////////// -->
@@ -44,51 +55,51 @@ $patDiag = patologDiagnoz($_GET['id']);
           <div class="input-group-prepend">
             <span class="input-group-text">K-1</span>
           </div>
-            <textarea class="form-control" name="sopKlin[0]" aria-label="With textarea"><?php echo $return["Сопутствующие_диагнозыК"]; ?></textarea>
+            <textarea class="form-control" name="sopKlin0" aria-label="With textarea"><?php echo $return["Сопутствующие_диагнозыК"]; ?></textarea>
           <div class="input-group-prepend ml-1">
               <span class="input-group-text">P-1</span>
           </div>
-              <textarea class="form-control" name="sopPat[0]" aria-label="With textarea"><?php echo $return["Сопутствующие_диагнозыП"]; ?></textarea>
+              <textarea class="form-control" name="sopPat0" aria-label="With textarea"><?php echo $return["Сопутствующие_диагнозыП"]; ?></textarea>
       </div>
       <div class="input-group mt-1">
           <div class="input-group-prepend">
             <span class="input-group-text">K-2</span>
           </div>
-            <textarea class="form-control" name="sopKlin[1]" aria-label="With textarea"><?php echo $return["Сопут_2_кд"]; ?></textarea>
+            <textarea class="form-control" name="sopKlin1" aria-label="With textarea"><?php echo $return["Сопут_2_кд"]; ?></textarea>
           <div class="input-group-prepend ml-1">
               <span class="input-group-text">P-2</span>
           </div>
-              <textarea class="form-control" name="sopPat[1]" aria-label="With textarea"><?php echo $return["Сопут_2_пд"]; ?></textarea>
+              <textarea class="form-control" name="sopPat1" aria-label="With textarea"><?php echo $return["Сопут_2_пд"]; ?></textarea>
       </div>
       <div class="input-group mt-1">
           <div class="input-group-prepend">
             <span class="input-group-text">K-3</span>
           </div>
-            <textarea class="form-control" name="sopKlin[2]" aria-label="With textarea"><?php echo $return["Сопут_3_кд"]; ?></textarea>
+            <textarea class="form-control" name="sopKlin2" aria-label="With textarea"><?php echo $return["Сопут_3_кд"]; ?></textarea>
           <div class="input-group-prepend ml-1">
               <span class="input-group-text">P-3</span>
           </div>
-              <textarea class="form-control" name="sopPat[2]" aria-label="With textarea"><?php echo $return["Сопут_3_пд"]; ?></textarea>
+              <textarea class="form-control" name="sopPat2" aria-label="With textarea"><?php echo $return["Сопут_3_пд"]; ?></textarea>
       </div>
       <div class="input-group mt-1">
           <div class="input-group-prepend">
             <span class="input-group-text">K-4</span>
           </div>
-            <textarea class="form-control" name="sopKlin[3]" aria-label="With textarea"><?php echo $return["Сопут_4_кд"]; ?></textarea>
+            <textarea class="form-control" name="sopKlin3" aria-label="With textarea"><?php echo $return["Сопут_4_кд"]; ?></textarea>
           <div class="input-group-prepend ml-1">
               <span class="input-group-text">P-4</span>
           </div>
-              <textarea class="form-control" name="sopPat[3]" aria-label="With textarea"><?php echo $return["Сопут_4_пд"]; ?></textarea>
+              <textarea class="form-control" name="sopPat3" aria-label="With textarea"><?php echo $return["Сопут_4_пд"]; ?></textarea>
       </div>
       <div class="input-group mt-1">
           <div class="input-group-prepend">
             <span class="input-group-text">K-5</span>
           </div>
-            <textarea class="form-control" name="sopKlin[4]" aria-label="With textarea"><?php echo $return["Сопут_5_кд"]; ?></textarea>
+            <textarea class="form-control" name="sopKlin4" aria-label="With textarea"><?php echo $return["Сопут_5_кд"]; ?></textarea>
           <div class="input-group-prepend ml-1">
               <span class="input-group-text">P-5</span>
           </div>
-              <textarea class="form-control" name="sopPat[4]" aria-label="With textarea"><?php echo $return["Сопут_5_пд"]; ?></textarea>
+              <textarea class="form-control" name="sopPat4" aria-label="With textarea"><?php echo $return["Сопут_5_пд"]; ?></textarea>
       </div>
 <!-- ///////////////////////////////////////////////////////////////////////////////// -->
       <p title="Если признак совпадает, то необходимо поставить галочку"><strong>Признак несовпадения:</strong></p>

@@ -39,12 +39,9 @@ session_start();
               </div>
             </div>
           </div>
-          <!-- <button type="button" class="btn btn-outline-success mr-1" data-toggle="modal" data-target="#exampleModal"> -->
-
           </button>
         </ul>
       </div>
-
     </nav>
 <!-- /////////////////////////////////////////////////////////////////////////////// -->
     <div class="lobby_main_cont">

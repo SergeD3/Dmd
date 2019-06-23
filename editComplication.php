@@ -6,6 +6,7 @@ $previous = $numb -1;
 $return = certainKey($_GET['id']);
 $retDiag = klinDiagnoz($_GET['id']);
 $patDiag = patologDiagnoz($_GET['id']);
+session_start();
 // $ddays = getDay($numb);
  ?>
 <!DOCTYPE html>
@@ -35,6 +36,16 @@ $patDiag = patologDiagnoz($_GET['id']);
           </li>
           <li class="nav-item active"><a class="nav-link" href="lobby.php">СУД <span class="sr-only"></span></a></li>
         </ul>
+        <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+          <div class="btn-group" role="group">
+            <button id="btnGroupDrop1" type="button" class="btn btn-outline-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Привет,<?php echo $_SESSION['login']; ?>
+            </button>
+            <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+              <a class="dropdown-item" href="out.php">Выход</a>
+            </div>
+          </div>
+        </div>
       </div>
     </nav>
     </div>

@@ -1,5 +1,6 @@
 <?php include "functions_db.php";
 $mkb = chooseMKB();
+session_start();
 // $numb = $_GET['certainKey1'];
 // $next = $numb + 1;
 // $previous = $numb -1;
@@ -31,6 +32,16 @@ $mkb = chooseMKB();
           <a class="nav-link" href="smd/dmd/index.php">Главная <span class="sr-only">(current)</span></a>
         </li>
       </ul>
+      <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+        <div class="btn-group" role="group">
+          <button id="btnGroupDrop1" type="button" class="btn btn-outline-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Привет,<?php echo $_SESSION['login']; ?>
+          </button>
+          <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+            <a class="dropdown-item" href="out.php">Выход</a>
+          </div>
+        </div>
+      </div>
     </div>
   </nav>
   <!-- ///////////////////////////////////////////////////////////////////////////////// -->

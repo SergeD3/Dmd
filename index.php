@@ -19,9 +19,6 @@
           <li class="nav-item active">
             <a class="nav-link" href="#">Главная <span class="sr-only">(current)</span></a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="lobby.php">СУД</a>
-          </li>
         </ul>
         <!-- Button trigger modal -->
           <button type="button" class="btn btn-outline-success mr-1" data-toggle="modal" data-target="#exampleModal">
@@ -62,8 +59,9 @@
       </div>
 </nav>
 
-    <h1>Добро пожаловать в Систему Управления Данными!</h1>
+
         <div class="main_cont">
+          <h1>Добро пожаловать в "Don de los muertos"</h1>
     <hr>
     <p>
       Для продолжения работы с системой, пожалуйста, зарегестрируйтесь: <a href="registr.php">Регистрация</a> или войдите в вашу учётную запись: <a href="#">Вход</a>

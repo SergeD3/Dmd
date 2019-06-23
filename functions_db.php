@@ -32,8 +32,9 @@ function addUser ($fio,$phone,$diplom,$username,$pasword,$mail,$hosp){
   openDB();
   $query = "INSERT INTO employees(ФИО,номер_тел,номер_диплома,логин,пароль,маил,больница) VALUES('$fio','$phone','$diplom','$username','$pasword','$mail','$hosp')";
   $res = mysqli_query($link,$query);
+  $res1 = mysqli_insert_id($link);
   closeDB();
-  return $res;
+  return $res1;
 }
 // Выбираем мкб из БД
 function chooseMKB (){
