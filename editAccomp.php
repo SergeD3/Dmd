@@ -129,6 +129,7 @@ session_start();
           </div>
           <input type="text" name="id_c" value="<?php echo "$numb"; ?>" hidden>
       <button type="submit" name="butt" class="btn btn-dark mt-2 mb-2">Сохранить</button>
+      <a class="btn btn-dark mt-2 mb-2" href="http://smd/dmd/certain_key_view.php?certainKey1=<?php echo $numb; ?>" role="button">Отменить</a>
       <!-- Button trigger modal -->
       <button type="button" class="btn btn-danger float-right" data-toggle="modal" data-target="#exampleModalLong">
         Помощь
@@ -150,7 +151,7 @@ session_start();
             <li>K(1-5) - клинический диагноз с соответствующим номером.</li>
             <li>P(1-5) - патологоанатомический диагноз с соответствующим номером.</li>
           </ul>
-          <p>Если признак совпадает необходимо выставить флажок. Признаки которые не совпадают должны остаться неотмеченными.</p>
+          <p>Если признак несовпадает необходимо выставить флажок. Признаки которые не совпадают должны остаться неотмеченными.</p>
           <p>При каждом редактировании кейса, проверяйте правильность выставленных флажков! Если не выставить флажки, то в базу данных
           запишутся значения установленные системой по умолчанию, имейте это ввиду.</p>
         </div>

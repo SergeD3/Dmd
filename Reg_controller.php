@@ -1,5 +1,6 @@
 <?php
 include "functions_db.php";
+session_start();
                 ///////////////////////////////////////////////////////////////
 $fio = clean($_POST['reg0']);
 $login = clean($_POST['reg1']);
@@ -10,15 +11,21 @@ $phone = clean($_POST['reg5']);
 $hosp = clean($_POST['reg6']);
 $email= clean($_POST['reg7']);
 $but = $_POST['button'];
+$check = originLogin($log);
                 ///////////////////////////////////////////////////////////////
+if(empty($check['логин']) == 1){
 if (empty($but) && $password1==$password2){
-$res = addUser($fio,$phone,$diplom,$login,$password1,$email,$hosp);
+$hex = password_hash($password1, PASSWORD_BCRYPT);
+$res = addUser($fio,$phone,$diplom,$login,$hex,$email,$hosp);
 echo "<script>alert('Регистрация прошла успешно! Теперь вам необходимо войти в вашу учетную запись, для этого воспользуйтесь кнопкой Войти');</script>";
 echo "<meta http-equiv=refresh content='0; url=http://smd/dmd/index.php'>";
 }else {
   echo "Что-то пошло не так...";
 }
+}else{
+  echo "Такой логин уже существует, придумайте другой!";
+}
                 ///////////////////////////////////////////////////////////////
-// echo "<button type="."button"."class="."btn btn-primary btn-lg btn-block".">Перейти в систему управления.</button>";
-// echo "$fio\n $login\n $password1 \n $password2\n $diplom\n $phone\n \n$hosp \n $email \n $but";
+
+
  ?>

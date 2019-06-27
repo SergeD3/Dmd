@@ -7,6 +7,10 @@ $return = certainKey($_GET['certainKey1']);
 $retDiag = klinDiagnoz($_GET['certainKey1']);
 $patDiag = patologDiagnoz($_GET['certainKey1']);
 session_start();
+if ($_SESSION['login'] == "") {
+  Header("Location: index.php");
+   die();
+}
  ?>
 <!DOCTYPE html>
 <html lang="ru" dir="ltr">
@@ -121,7 +125,7 @@ session_start();
    <tbody class="table-success">
       <?php
           echo "<tr><td>".$return["ДатаПротокола"]."</td>";
-          echo "<td>".$ddays["Name_exp_2"]."</td>";
+          echo "<td>"."</td>";
           echo "<td>".$return["СовпадениеПрот"]."</td>";
           echo "<td>".$return["ОбязАутоп"]."</td></tr>";
       ?>

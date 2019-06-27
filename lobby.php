@@ -1,5 +1,9 @@
 <?php include "functions_db.php";
 session_start();
+if ($_SESSION['login'] == "") {
+  Header("Location: index.php");
+   die();
+}
  ?>
 <!DOCTYPE html>
 <html lang="ru" dir="ltr">

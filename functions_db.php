@@ -30,8 +30,7 @@ function getAllHosp(){
 function addUser($fio,$phone,$diplom,$login,$pasword,$mail,$hosp){
   global $link;
   openDB();
-  // $query = "INSERT INTO `employees`(ФИО,номер_тел,номер_диплома,логин,пароль,маил,больница) VALUES('$fio','$phone','$diplom','$login','$pasword','$mail','$hosp')";
-  $sql = "INSERT INTO `employees`(ФИО,номер_тел,номер_диплома,логин,пароль,маил,id_hosp) VALUES(\"$fio\",$phone,\"$diplom\",\"$login\",$pasword,\"$mail\",$hosp)";
+  $sql = "INSERT INTO `employees`(ФИО,номер_тел,номер_диплома,логин,пароль,маил,id_hosp) VALUES(\"$fio\",$phone,\"$diplom\",\"$login\",\"$pasword\",\"$mail\",$hosp)";
   $res = mysqli_query($link,$sql);
   closeDB();
   return $res;
@@ -164,6 +163,14 @@ return mysqli_fetch_all($res, MYSQLI_ASSOC);
 }
 // проверка входа
 function checkUser($log){
+  global $link;
+  openDB();
+  $res = mysqli_query($link,"SELECT * FROM `employees` WHERE логин = \"$log\"");
+  closeDB();
+return mysqli_fetch_assoc($res);
+}
+// проверка логина на уникальность
+function originLogin($log){
   global $link;
   openDB();
   $res = mysqli_query($link,"SELECT * FROM `employees` WHERE логин = \"$log\"");

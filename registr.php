@@ -1,7 +1,6 @@
 <?php include "functions_db.php";
 $getHosp = getAllHosp();
   ?>
-
 <!DOCTYPE html>
 <html lang="ru" dir="ltr">
   <head>
