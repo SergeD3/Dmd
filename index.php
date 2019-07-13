@@ -15,14 +15,17 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="index.php">SMD</a>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+      <div class="collapse navbar-collapse" id="navbarText">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
             <a class="nav-link" href="#">Главная <span class="sr-only">(current)</span></a>
           </li>
         </ul>
         <!-- Button trigger modal -->
-          <button type="button" class="btn btn-outline-success mr-1" data-toggle="modal" data-target="#exampleModal">
+          <button type="button" class="btn btn-outline-primary mr-1" data-toggle="modal" data-target="#exampleModal">
           Вход
           </button>
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit" onclick="window.location = 'registr.php';">Регистрация</button>
@@ -48,11 +51,11 @@
                       <input type="password" name="password" class="form-control" id="inputPassword4" placeholder="Password">
                     </div>
                   </div>
-                  <button type="submit" class="btn btn-secondary">Подтвердить</button>
+                  <button type="submit" class="btn btn-dark">Подтвердить</button>
                 </form>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
               </div>
             </div>
           </div>
@@ -60,16 +63,38 @@
       </div>
 </nav>
           <!-- ///////////////////////////////////////////////////////////////////////////////////////////////////// -->
-        <div class="main_cont">
-          <h1>Добро пожаловать в "Don de los muertos"</h1>
+    <div class="main_cont">
+        <h1 class="display-7">Добро пожаловать в ИС по управлению данными патологоанатомического отделения!</h1>
     <hr>
     <p>
-      Для продолжения работы с системой, пожалуйста, зарегестрируйтесь: <a href="registr.php">Регистрация</a> или войдите в вашу учётную запись: <a href="#">Вход</a>
+      К работе с информационной системой допускаются только зарегистрированные пользователи. Для продолжения работы с системой, пожалуйста, зарегистрируйтесь: <a href="registr.php">Регистрация</a> или войдите в вашу учётную запись: <a href="#">Вход</a>
     </p>
     <hr>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-    </div>
+    <h4>После авторизации вам будут доступны следующие возможности:</h4>
+    <hr>
           <!-- ///////////////////////////////////////////////////////////////////////////////////////////////////// -->
+    <div class="row">
+      <div class="col-lg-4">
+        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 140x140"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
+        <h3>Просмотр данных по кейсу</h3>
+        <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
+        <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+      </div><!-- /.col-lg-4 -->
+      <div class="col-lg-4">
+        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 140x140"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
+        <h2>Heading</h2>
+        <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
+        <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+      </div><!-- /.col-lg-4 -->
+      <div class="col-lg-4">
+        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 140x140"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
+        <h2>Heading</h2>
+        <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+        <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+      </div><!-- /.col-lg-4 -->
+    </div><!-- /.row -->
+    </div>
+              <!-- ///////////////////////////////////////////////////////////////////////////////////////////////////// -->
 <script src="JS\external.js"></script>
           <!-- ///////////////////////////////////////////////////////////////////////////////////////////////////// -->
 </body>

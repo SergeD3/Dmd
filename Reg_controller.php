@@ -18,7 +18,7 @@ if (empty($but) && $password1==$password2){
 $hex = password_hash($password1, PASSWORD_BCRYPT);
 $res = addUser($fio,$phone,$diplom,$login,$hex,$email,$hosp);
 echo "<script>alert('Регистрация прошла успешно! Теперь вам необходимо войти в вашу учетную запись, для этого воспользуйтесь кнопкой Войти');</script>";
-echo "<meta http-equiv=refresh content='0; url=http://smd/dmd/index.php'>";
+echo "<meta http-equiv=refresh content='0; url=index.php'>";
 }else {
   echo "Что-то пошло не так...";
 }
@@ -26,6 +26,4 @@ echo "<meta http-equiv=refresh content='0; url=http://smd/dmd/index.php'>";
   echo "Такой логин уже существует, придумайте другой!";
 }
                 ///////////////////////////////////////////////////////////////
-
-
  ?>

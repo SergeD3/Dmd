@@ -144,15 +144,15 @@ function clean($value = "") {
   $value = htmlspecialchars($value);
 return $value;
 }
-function deleteCase($id){
-global $link;
-openDB();
-$sql = "DELETE `Kases`,`Klindiagnoz`,`patologdiagnoz` FROM `Kases` INNER JOIN `Klindiagnoz` INNER JOIN `patologdiagnoz`\n"
-  . "WHERE `Kases`.`id_кейса` =`Klindiagnoz`.`id_кейса` AND `Klindiagnoz`.`id_кейса` =`patologdiagnoz`.`id_кейса` AND `Kases`.`id_кейса` = '$id'";
-  $res = mysqli_query($link,$sql);
-closeDB();
-return $res;
-}
+// function deleteCase($id){
+// global $link;
+// openDB();
+// $sql = "DELETE `Kases`,`Klindiagnoz`,`patologdiagnoz` FROM `Kases` INNER JOIN `Klindiagnoz` INNER JOIN `patologdiagnoz`\n"
+//   . "WHERE `Kases`.`id_кейса` =`Klindiagnoz`.`id_кейса` AND `Klindiagnoz`.`id_кейса` =`patologdiagnoz`.`id_кейса` AND `Kases`.`id_кейса` = '$id'";
+//   $res = mysqli_query($link,$sql);
+// closeDB();
+// return $res;
+// }
 // вызов хранимой процедуры сравнения
 function compareProcedure($id){
   global $link;
@@ -176,5 +176,26 @@ function originLogin($log){
   $res = mysqli_query($link,"SELECT * FROM `employees` WHERE логин = \"$log\"");
   closeDB();
 return mysqli_fetch_assoc($res);
+}
+function deleteCase($id){
+  global $link;
+  openDB();
+  $res = mysqli_query($link, "DELETE FROM Kases WHERE id_кейса = $id");
+  closeDB();
+  return $res;
+}
+function delPat($id){
+  global $link;
+  openDB();
+  $res = mysqli_query($link, "DELETE FROM patologdiagnoz WHERE id_кейса = $id");
+  closeDB();
+  return $res;
+}
+function delKlin($id){
+  global $link;
+  openDB();
+  $res = mysqli_query($link, "DELETE FROM Klindiagnoz WHERE id_кейса = $id");
+  closeDB();
+  return $res;
 }
  ?>

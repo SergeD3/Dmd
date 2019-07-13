@@ -61,11 +61,13 @@ if ($_SESSION['login'] == "") {
             <button type="submit" class="btn btn-primary mb-2">Найти и показать</button>
           </form>
           <hr class="hr1">
+<!-- /////////////////////////////////////////////////////////////////////////////// -->
           <h4>Добавление кейса в базу данных:</h4>
           <a class="btn btn-primary" href="addCase.php" role="button">Добавить</a>
           <hr class="hr1">
+<!-- /////////////////////////////////////////////////////////////////////////////// -->
           <h4>Удаление кейса из базы данных:</h4>
-          <form class="form-inline" action="deleteCase_contrl.php" method="post">
+          <form name="delForm" class="form-inline" action="deleteCase_contrl.php" method="post">
             <div class="form-group mx-sm-1">
               <input type="text" name="delCase" class="form-control" id="inputZip" placeholder="Номер кейса">
             </div>
@@ -74,5 +76,8 @@ if ($_SESSION['login'] == "") {
 <!-- /////////////////////////////////////////////////////////////////////////////// -->
       </div>
     </div>
+    <script src="JS\external.js">
+
+    </script>
   </body>
 </html>

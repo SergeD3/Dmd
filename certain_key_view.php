@@ -3,9 +3,9 @@ $mkb = chooseMKB();
 $numb = $_GET['certainKey1'];
 $next = $numb + 1;
 $previous = $numb -1;
-$return = certainKey($_GET['certainKey1']);
-$retDiag = klinDiagnoz($_GET['certainKey1']);
-$patDiag = patologDiagnoz($_GET['certainKey1']);
+$return = certainKey($numb);
+$retDiag = klinDiagnoz($numb);
+$patDiag = patologDiagnoz($numb);
 session_start();
 if ($_SESSION['login'] == "") {
   Header("Location: index.php");
@@ -138,10 +138,9 @@ if ($_SESSION['login'] == "") {
         <li class="list-group-item list-group-item-success"><strong>Комментарий по аутопсии: </strong><?php echo $return["Коментарий"]; ?></li>
       </ul>
       <div class="btn-group mt-3" role="group" aria-label="Basic example">
-        <a href="http://smd/dmd/editcase.php?id=<?php echo $numb ?>" class="btn btn-dark">Редактировать кейс</a>
+        <a href="editcase.php?id=<?php echo $numb ?>" class="btn btn-dark">Редактировать кейс</a>
       </div>
-      <a href="http://smd/dmd/deleteCase_contrl.php?id=<?php echo $numb ?>" class="btn btn-danger mt-3 float-right">Удалить кейс</a>
-
+      <a href="deleteCase_contrl.php?id=<?php echo $numb ?>" class="btn btn-danger mt-3 float-right">Удалить кейс</a>
 </div>
 <!-- ///////////////////////////////////////////////////////////////////////////////// -->
 <div id="txt_2">
@@ -170,8 +169,8 @@ if ($_SESSION['login'] == "") {
     </div>
   </div>
   <div class="btn-group mt-3" role="group" aria-label="Basic example">
-    <a href="http://smd/dmd/editCaseDiag.php?id=<?php echo $numb ?>" class="btn btn-dark">Редактировать кейс</a>
-    <a href="http://smd/dmd/compareProcedure_contrl.php?id=<?php echo $numb ?>" class="btn btn-dark">Сравнение по МКБ</a>
+    <a href="editCaseDiag.php?id=<?php echo $numb ?>" class="btn btn-dark">Редактировать кейс</a>
+    <a href="compareProcedure_contrl.php?id=<?php echo $numb ?>" class="btn btn-dark">Сравнение по МКБ</a>
   </div>
 </div>
 <!-- ///////////////////////////////////////////////////////////////////////////////// -->
@@ -265,7 +264,7 @@ if ($_SESSION['login'] == "") {
         </label>
       </div>
         <div class="btn-group mt-2" role="group" aria-label="Basic example">
-          <a href="http://smd/dmd/editMainDiag.php?id=<?php echo $numb ?>" class="btn btn-dark">Редактировать кейс</a>
+          <a href="editMainDiag.php?id=<?php echo $numb ?>" class="btn btn-dark">Редактировать кейс</a>
         </div>
   <button class="btn btn-danger mt-2 float-right" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
     Помощь
@@ -371,7 +370,7 @@ if ($_SESSION['login'] == "") {
       </label>
     </div>
     <div class="btn-group mt-2" role="group" aria-label="Basic example">
-      <a href="http://smd/dmd/editComplication.php?id=<?php echo $numb ?>" class="btn btn-dark">Редактировать кейс</a>
+      <a href="editComplication.php?id=<?php echo $numb ?>" class="btn btn-dark">Редактировать кейс</a>
     </div>
     <button class="btn btn-danger mt-2 float-right" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
       Помощь
@@ -477,7 +476,7 @@ if ($_SESSION['login'] == "") {
       </label>
     </div>
     <div class="btn-group mt-2" role="group" aria-label="Basic example">
-      <a href="http://smd/dmd/editAccomp.php?id=<?php echo $numb ?>" class="btn btn-dark">Редактировать кейс</a>
+      <a href="editAccomp.php?id=<?php echo $numb ?>" class="btn btn-dark">Редактировать кейс</a>
     </div>
     <button class="btn btn-danger mt-2 float-right" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
       Помощь
@@ -497,9 +496,9 @@ if ($_SESSION['login'] == "") {
 
 </div>
 <div class="btn-group mt-2" role="group" aria-label="Basic example">
-  <a href="http://smd/dmd/certain_key_view.php?certainKey1=<?php echo "$previous"; ?> " class="btn btn-dark">Предыдущий кейс</a>
-  <a href="http://smd/dmd/lobby.php" class="btn btn-dark">Обратно</a>
-  <a href="http://smd/dmd/certain_key_view.php?certainKey1=<?php echo "$next"; ?> " class="btn btn-dark">Следующий кейс</a>
+  <a href="certain_key_view.php?certainKey1=<?php echo "$previous"; ?> " class="btn btn-dark">Предыдущий кейс</a>
+  <a href="lobby.php" class="btn btn-dark">Обратно</a>
+  <a href="certain_key_view.php?certainKey1=<?php echo "$next"; ?> " class="btn btn-dark">Следующий кейс</a>
 </div>
 </div>
 <!-- ///////////////////////////////////////////////////////////////////////////////// -->
